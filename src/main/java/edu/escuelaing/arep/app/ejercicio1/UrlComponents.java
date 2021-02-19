@@ -1,4 +1,4 @@
-package edu.escuelaing.arep.app.edu.escuelaing.arep.ejercicio1;
+package edu.escuelaing.arep.app.ejercicio1;
 
 import java.net.URL;
 
