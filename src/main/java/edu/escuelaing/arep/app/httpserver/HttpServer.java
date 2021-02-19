@@ -1,6 +1,7 @@
 package edu.escuelaing.arep.app.httpserver;
 
-import edu.escuelaing.arep.app.myspark.MySparkCreationServer;
+import edu.escuelaing.arep.app.myspark.AnotherSpark;
+
 import java.net.*;
 import java.io.*;
 import java.util.HashMap;
@@ -9,7 +10,7 @@ import java.util.Map;
 public class HttpServer {
 
     private boolean isAlive = true;
-    Map<String, MySparkCreationServer> routes = new HashMap();
+    Map<String, AnotherSpark> routes = new HashMap();
 
     /**
      * Constructor.
@@ -93,7 +94,7 @@ public class HttpServer {
      * Revisa en el path enviado, si la información la tiene en disco.
      * @param inputLine
      * @param out
-     * @return
+     * @return una imprensin en pantalla dependiendo del formato pedido.
      */
     public String watchingDisc(String inputLine, PrintWriter out, Socket os) throws IOException {
 
@@ -150,7 +151,7 @@ public class HttpServer {
      * Nos dice si el servidor esta prendido o apagado.
      * @return boolean.
      */
-    private boolean isAlive() {
+    public boolean isAlive() {
         return isAlive;
     }
 
@@ -158,7 +159,7 @@ public class HttpServer {
      *  Nos permite cambiar el estado del servidor, de apagado a prendido, o al contrario.
      * @param alive
      */
-    private void setAlive(boolean alive) {
+    public void setAlive(boolean alive) {
         isAlive = alive;
     }
 
@@ -251,6 +252,11 @@ public class HttpServer {
         response.close();
     }
 
+    /**
+     * Busca en el path de archivos .js, y muestra uno en pantalla.
+     * @param out para poder imprimir en pantalla el archivo .js sin necesidad de usar el socket client
+     * @throws IOException
+     */
     public void doJs(PrintWriter out) throws IOException {
         String outputLine;
 
@@ -292,6 +298,8 @@ public class HttpServer {
         out.close();
     }
 
+
+
     /**
      * Método que nos devuelve el puerto por el que correrá localmente nuestro servicio
      * @return el puerto del servicio.
@@ -303,7 +311,12 @@ public class HttpServer {
         return 36000;
     }
 
-    public void registerProessor(String path, MySparkCreationServer mySparkCreationServer) {
-        routes.put(path,mySparkCreationServer);
+    /**
+     * Agrega las rutas al servidor.
+     * @param path de la ruta que vamos a usar
+     * @param anotherSpark la clase, para luego poder retornar si el valor existe o no.
+     */
+    public void registerProessor(String path, AnotherSpark anotherSpark) {
+        routes.put(path, anotherSpark);
     }
 }

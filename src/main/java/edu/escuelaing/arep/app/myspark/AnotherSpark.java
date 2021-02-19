@@ -1,33 +1,37 @@
 package edu.escuelaing.arep.app.myspark;
 
+import edu.escuelaing.arep.app.httpserver.HttpServer;
+import java.io.IOException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import edu.escuelaing.arep.app.httpserver.HttpServer;
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-public class MySparkCreationServer {
+public class AnotherSpark {
 
     Map<String, BiFunction<HttpRequest, HttpResponse, String>> route = new HashMap<String, BiFunction<HttpRequest, HttpResponse, String>>();
     HttpServer httpServer = new HttpServer();
 
-    private static MySparkCreationServer _instance = new MySparkCreationServer();
-
-    private MySparkCreationServer(){
+    /**
+     * Constructor de la clase MySparkCreation, nos permite colocar por defecto el path /App.
+     */
+    public AnotherSpark(){
         httpServer.registerProessor("/App", this);
     }
 
-    public static MySparkCreationServer getInstance(){
-        return _instance;
-    }
-
-    public void get(String path, BiFunction<HttpRequest, HttpResponse, String> sup){
+    /**
+     * Agrega todas las rutas antes de iniciar el servidor http.
+     * @param path representa el token.
+     * @param sup la expresion lambda que vamos a usar.
+     */
+    public void get(String path, BiFunction<HttpRequest, HttpResponse, String> sup)  {
         route.put(path, sup);
     }
 
+    /**
+     * Inicializa el servidor https.
+     */
     public void startServer()   {
         try {
             httpServer.start();
@@ -36,14 +40,21 @@ public class MySparkCreationServer {
         }
     }
 
+    /**
+     * Verifica que la ruta a buscar si exista en nuestro arreglo de rutas.
+     * @param path de la ruta que estamos buscando
+     * @param req valor lambda
+     * @param resp valor lambda
+     * @return html diciendo si el valor encontrado es correcto o no, se mostrara en pantalla.
+     */
     public String handle(String path, HttpRequest req, HttpResponse resp){
         if(route.containsKey(path)){
-            return httpOkHeader() + route.get(path).apply(req, resp);
+            return httpOk() + route.get(path).apply(req, resp);
         }
-        return httpNotOkHeader() + "Error";
+        return httpNotOk() + "Error";
     }
 
-    private String httpNotOkHeader() {
+    private String httpNotOk() {
         return "HTTP/1.1 404 not Found\r\n"
                 + "Content-Type: text/html\r\n"
                 + "\r\n"
@@ -59,9 +70,10 @@ public class MySparkCreationServer {
                 + "</html>\n";
     }
 
-    private String httpOkHeader() {
+    private String httpOk() {
         return "HTTP/1.1 200 OK\r\n"
                 + "Content-Type: text/html\r\n"
                 + "\r\n";
     }
+
 }

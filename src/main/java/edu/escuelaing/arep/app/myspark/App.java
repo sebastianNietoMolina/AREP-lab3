@@ -1,15 +1,20 @@
 package edu.escuelaing.arep.app.myspark;
 
-import static edu.escuelaing.arep.app.myspark.MySparkCreation.*;
-
 /**
  * Hello world!
  *
  */
 public class App {
 
+    /**
+     * main, clase ejectura para comenzar el programa.
+     * @param args
+     */
     public static void main( String[] args ) {
-        get("/hello", (req, resp) -> "Hello World");
+        AnotherSpark anotherSpark = new AnotherSpark();
+        anotherSpark.get("/hello2", (req, resp) -> "Hello World2");
+        anotherSpark.get("/hello", (req, resp) -> "Hello World");
+        anotherSpark.startServer();
     }
 
 }
