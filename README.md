@@ -78,25 +78,40 @@ Posteriormente debe escribir el siguiente link en su buscador: localhost:5000
 
 Si por el contrario solo ejecuto el programa desde el main, o por comando, debe escribir el siguiente link en su buscador: localhost:36000
 
+Recuerda que debes hacer el siguiente cambio en el archivo index.html, para que pueda funcionar correctamente el programa, te dejare un ejemplo de como se veen localhost.
+
+![](fotos/localhost.JPG)
+
 ## Ejercicio 1
 
 Para este caso debes ir a la carpeta ejercicio1, ahí encontraras los métodos get para tener todas las partes de una url, en particular esta url tiene secciones que no le pertenecen, que fueron agregadas apropósito para que pudieran salir todas las impresiones en consola.
+
+![](fotos/ejercicio1.JPG)
 
 ## Ejercicio 2
 
 Aquí simplemente se hace  una lectura con ayuda del bufferReader y luego todas las líneas que encontró el archivo las guardamos en uno nuevo, por consola te pedirá que ingreses la url, y esta se guardara en la carpeta que esta al mismo nivel de la carpeta src, con el nombre resultado.html
 
+![](fotos/ejercicio2-1.JPG)
+![](fotos/ejercicio2-2.JPG)
+
 ## Ejercicio 3
 
 En este ejercicio, se plantea 2 soluciones, en particular, se tiene un cliente y un servidor, se debe correr primero el servidor y luego el cliente, ahí, el cliente ingresa cualquier cadena de texto y el servidor retornara lo que el cliente escribió, pero, el reto era leer 20 números y elevarlos al cuadrado, para ello, se usa la misma lógica, hay un cliente y servidor, pero estos en particular elevan el numero al cuadrado, y lee un arreglo ya definido, luego de elevar los números al cuadrado se cierra el cliente y servidor.
+
+![](fotos/ejercicio3.JPG)
 
 ## Reto1
 
 En particular se creó un index.html que lo que hace es pedir al servidor web que traiga algunas rutas que el ya tiene guardadas, como lo son, un archivo .css que te mostrara en pantalla que contiene (para el caso que se desplego en heroku este archivo deje de encontrarlo,), un archivo .js que al igual que el .css, te mostrara su contenido, y 2 imágenes, una .png y otra .jpg, aquí el reto se genera porque debemos crear nuestro propio http serve, si desea detallar mas puede ver el documento .pdf que lo describe un poco mejor.
 
+![](fotos/reto1.JPG)
+
 ## Reto 2
 
 Para este último reto se debía crear el framework como tal que leyera peticiones get con funciones lambda, y además pudiera conectarse a una base de datos y guardar y mostrar información de ahí, en particular este ultimo caso no se pudo lograr, pero se pudo implementar una función que nos permitiera leer peticiones get, y además estar desplegado en heroku.
+
+![](fotos/reto2.JPG)
 
 ## Autores ✒️
 
