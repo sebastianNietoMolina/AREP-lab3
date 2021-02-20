@@ -111,6 +111,12 @@ En particular se creó un index.html que lo que hace es pedir al servidor web qu
 
 Para este último reto se debía crear el framework como tal que leyera peticiones get con funciones lambda, y además pudiera conectarse a una base de datos y guardar y mostrar información de ahí, en particular este ultimo caso no se pudo lograr, pero se pudo implementar una función que nos permitiera leer peticiones get, y además estar desplegado en heroku.
 
+Para esste caso tenemos dos casos hello y hello2, es muy importante que completen la ruta con /App/hello o /App/hello2 como se ve en el siguiente link, eso cuanto abran heroku.
+
+```
+https://aqueous-plains-80854.herokuapp.com/App/hello
+```
+
 ![](fotos/reto2.JPG)
 
 ## Autores ✒️
